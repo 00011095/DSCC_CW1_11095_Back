@@ -1,0 +1,17 @@
+[Unit]
+Description=Desc
+
+[Service]
+WorkingDirectory=/var/www/
+ExecStart=/usr/bin/dotnet /var/www/DSCC_CW1_11095_Back.dll
+Restart=always
+
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=webapi
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+Environment=ASPNETCORE_URLS=http://*:80
+
+[Install]
+WantedBy=multi-user.target
